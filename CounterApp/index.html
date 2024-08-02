@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/common.css">
+    <link rel="stylesheet" href="style/main.css">
+    <title>Counter App</title>
+</head>
+
+<body>
+    <div class="counter-container">
+        <div class="counter-title">
+            <h1>Counter</h1>
+        </div>
+        <div class="counter-data">
+            <p class="counter-value">0</p>
+        </div>
+        <div class="counter-action-container">
+            <div class="counter-action">
+                <button onclick="decrementCounter()">-</button>
+            </div>
+            <div class="counter-action">
+                <button onclick="resetCounter()">x</button>
+            </div>
+            <div class="counter-action">
+                <button onclick="incrementCounter()">+</button>
+            </div>
+        </div>
+    </div>
+    <script src="script/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+.counter-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 32px;
+}
+
+.counter-title h1{
+    
+}
+
+.counter-data p {
+    font-size: x-large;
+    font-weight: bold;
+    background-color: bisque;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.counter-action-container {
+    display: flex;
+    gap: 16px;
+}
+
+.counter-action button {
+    background-color: bisque;
+    border: none;
+    font-size: large;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
