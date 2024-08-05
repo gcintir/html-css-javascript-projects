@@ -1,8 +1,9 @@
 
+const INITIAL_COUNTER_VALUE = 0;
 initializeCounter();
 
 function initializeCounter() {
-    document.querySelector('.counter-value').textContent = '0';
+    document.querySelector('.counter-value').textContent = INITIAL_COUNTER_VALUE;
 }
 
 function incrementCounter () {
@@ -26,4 +27,3 @@ function getValue() {
 function setValue(value) {
     document.querySelector('.counter-value').textContent =value;
 }
-

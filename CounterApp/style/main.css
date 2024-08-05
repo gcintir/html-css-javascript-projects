@@ -4,28 +4,29 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    gap: 32px;
+    gap: 48px;
 }
 
 .counter-title h1{
-    
+    font-size: 50px;
 }
 
 .counter-data p {
-    font-size: x-large;
+    font-size: 80px;
     font-weight: bold;
-    background-color: bisque;
+    background-color: rgba(229, 231, 235, 0.9);
     padding: 20px;
     border-radius: 10px;
 }
 
 .counter-action-container {
     display: flex;
-    gap: 16px;
+    gap: 32px;
+    margin-top: 32px;
 }
 
 .counter-action button {
-    background-color: bisque;
+    background-color: rgba(66, 67, 70, 1);
     border: none;
     font-size: large;
     padding-left: 15px;
@@ -34,4 +35,14 @@
     padding-bottom: 10px;
     border-radius: 10px;
     cursor: pointer;
+    border-radius: 50px;
+    transition: background-color 0.15s;
+}
+
+.counter-action button:hover {
+    background-color: rgba(66, 67, 70, 0.8);
+}
+
+.counter-action-icon {
+    width: 50px;
 }
