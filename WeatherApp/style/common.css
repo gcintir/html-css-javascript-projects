@@ -14,7 +14,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 150vh; /* TODO: set as 100*/
+    height: 100vh;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #3478d1;
     color: #050548;
@@ -27,6 +27,7 @@ body {
     padding: 10px;
     width: 35rem;
 }
+
 
 .hidden {
     display: none !important;
