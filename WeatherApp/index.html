@@ -4,36 +4,264 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style/common.css">
-    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/wc-search.css">
+    <link rel="stylesheet" href="style/wc-data.css">
+    <link rel="stylesheet" href="style/wc-forecast.css">
     <title>Weather App</title>
     <!--
     https://www.youtube.com/watch?v=74IOjtVvExY
     https://www.youtube.com/watch?v=MIYQR-Ybrn4
     https://www.youtube.com/watch?v=tIBQBmZvv8U
     https://www.youtube.com/watch?v=iILFBGm_I9M
+
+    pm2_5 (PM2.5 (μg/m3)) & pm10 (PM10 (μg/m3)) unit -> Micrograms per cubic meter of air (µg/m³)
+    o3 (Ozone (μg/m3)) unit -> Parts per billion (ppb) or parts per million (ppm)
+    no2 (Nitrogen dioxide (μg/m3)) unit -> Parts per billion (ppb) or micrograms per cubic meter (µg/m³)
+    so2 (Sulphur dioxide (μg/m3)) unit -> Parts per billion (ppb) or micrograms per cubic meter (µg/m³)
+    co (Carbon Monoxide (μg/m3)) unit ->  Parts per million (ppm) or milligrams per cubic meter (mg/m³)
+    us-epa-index (US - EPA standard.)
+    1 means Good
+2 means Moderate
+3 means Unhealthy for sensitive group
+4 means Unhealthy
+5 means Very Unhealthy
+6 means Hazardous
     -->
 </head>
 
 <body>
-    <div class="weather-condition-container">
-        <div>
-            <input class="city-input" type="text" placeholder="Enter city">
-        </div>
-        <div>
-            <button class="search-button">Search</button>
-        </div>
-        <div class="weather-condition-data">
-            <div class="weather-condition-text">
-
+    <div class="flex-container">
+        <div class="wc-search-container">
+            <div>
+                <h1>Weather App</h1>
             </div>
-            <img class="weather-condition-image" src="" alt="">
-            <div class="weather-condition-temperature">
-
+            <div class="wc-location-container">
+                <div>
+                    <img class="location-icon" src="icons/location.png" alt="">
+                </div>
+                <div class="location-input-container">
+                    <input class="location-input" type="text" placeholder="Enter your location">
+                </div>
+                <div>
+                    <button class="search-button">
+                        <img class="search-icon" src="icons/search.png" alt="">
+                    </button>
+                </div>
             </div>
+
+        </div>
+
+        <div class="wc-data-container hidden">
+            <div>
+                <span>Last updated at date-time</span>
+            </div>
+            <div class="wc-temperature-container">
+                <div>
+                    <img class="wc-temperature-icon" src="icons/sunny.webp" alt="">
+                </div>
+                <div>
+                    <p class="temperature-info">22 &deg;C</p>
+                    <p class="temperature-feel-info">Feels like 24 &deg;C</p>
+                    <p class="wc-info">Sunny</p>
+                </div>
+            </div>
+            <div class="location-info">
+                <p>Biga, Canakkale, Turkey</p>
+            </div>
+            <div class="location-datetime-info">
+                Date, Time
+            </div>
+            <div class="wc-info-container">
+                <div class="wc-humidity-container">
+                    <div>
+                        <img class="humidity-icon" src="icons/humidity.png" alt="">
+                        <p>Humidity</p>
+                    </div>
+                    <div>
+                        <p class="wc-humidity-info">42%</p>
+                    </div>
+                </div>
+                <div class="wc-airq-container">
+                    <div>
+                        <img class="airq-icon" src="icons/air_quality.png" alt="">
+                        <p>Air Quality</p>
+                    </div>
+                    <div>
+                        <p class="airq-info">co: 230.3</p>
+                        <p class="airq-info">no2: 25.7</p>
+                        <p class="airq-info">o3: 19.5</p>
+                        <p class="airq-info">so2: 9.3</p>
+                        <p class="airq-info">Good</p>
+                    </div>
+                </div>
+                <div class="wc-wind-container">
+                    <div>
+                        <img class="wind-icon" src="icons/wind_power.png" alt="">
+                        <p>Wind Power</p>
+                    </div>
+                    <div>
+                        <p class="wind-info">56 km/h</p>
+                        <p class="wind-info">North</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="wc-forecast-container hidden">
+            <div class="wc-forecast-type-container">
+                <div>
+                    <p>Forecast</p>
+                </div>
+                <div class="wc-forecast-item-container">
+                    <div>
+                        <span>Hourly</span>
+                    </div>
+                    <div>
+                        <button class="toggle-button-left">
+                            <img class="toggle-icon-left" src="icons/toggle_left.png" alt="">
+                        </button>
+                    </div>
+                    <div>
+                        <button class="toggle-button-right">
+                            <img class="toggle-icon-right" src="icons/toggle_right.png" alt="">
+                        </button>
+                    </div>
+                    <div>
+                        <span>Daily</span>
+                    </div>
+                </div>
+            </div>
+            <div class="wc-forecast-data-container">
+                <div class="forecast-item-container">
+                    <div class="forecast-datetime">
+                        <p>14:00</p>
+                    </div>
+                    <div class="temperature-forecast-container">
+                        <div>
+                            <img class="temperature-forecast-icon" src="icons/sunny.webp" alt="">
+                        </div>
+                        <div>
+                            <p class="temperature-forecast-info">22 &deg;C</p>
+                            <p class="wc-forecast-info">Sunny</p>
+                        </div>
+                    </div>
+                    <div class="humidity-forecast-container">
+                        <div>
+                            <img class="humidity-forecast-icon" src="icons/humidity.png" alt="">
+                        </div>
+                        <div>
+                            <p class="humidity-forecast-info">42%</p>
+                        </div>
+                    </div>
+                    <div class="wind-forecast-container">
+                        <div>
+                            <img class="wind-forecast-icon" src="icons/wind_power.png" alt="">
+                        </div>
+                        <div>
+                            <p class="wind-forecast-info">56 km/h</p>
+                            <p class="wind-forecast-info">North</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="forecast-item-container">
+                    <div class="forecast-datetime">
+                        <p>14:00</p>
+                    </div>
+                    <div class="temperature-forecast-container">
+                        <div>
+                            <img class="temperature-forecast-icon" src="icons/sunny.webp" alt="">
+                        </div>
+                        <div>
+                            <p class="temperature-forecast-info">22 &deg;C</p>
+                            <p class="wc-forecast-info">Sunny</p>
+                        </div>
+                    </div>
+                    <div class="humidity-forecast-container">
+                        <div>
+                            <img class="humidity-forecast-icon" src="icons/humidity.png" alt="">
+                        </div>
+                        <div>
+                            <p class="humidity-forecast-info">42%</p>
+                        </div>
+                    </div>
+                    <div class="wind-forecast-container">
+                        <div>
+                            <img class="wind-forecast-icon" src="icons/wind_power.png" alt="">
+                        </div>
+                        <div>
+                            <p class="wind-forecast-info">56 km/h</p>
+                            <p class="wind-forecast-info">North</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="forecast-item-container">
+                    <div class="forecast-datetime">
+                        <p>14:00</p>
+                    </div>
+                    <div class="temperature-forecast-container">
+                        <div>
+                            <img class="temperature-forecast-icon" src="icons/sunny.webp" alt="">
+                        </div>
+                        <div>
+                            <p class="temperature-forecast-info">22 &deg;C</p>
+                            <p class="wc-forecast-info">Sunny</p>
+                        </div>
+                    </div>
+                    <div class="humidity-forecast-container">
+                        <div>
+                            <img class="humidity-forecast-icon" src="icons/humidity.png" alt="">
+                        </div>
+                        <div>
+                            <p class="humidity-forecast-info">42%</p>
+                        </div>
+                    </div>
+                    <div class="wind-forecast-container">
+                        <div>
+                            <img class="wind-forecast-icon" src="icons/wind_power.png" alt="">
+                        </div>
+                        <div>
+                            <p class="wind-forecast-info">56 km/h</p>
+                            <p class="wind-forecast-info">North</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="forecast-item-container">
+                    <div class="forecast-datetime">
+                        <p>14:00</p>
+                    </div>
+                    <div class="temperature-forecast-container">
+                        <div>
+                            <img class="temperature-forecast-icon" src="icons/sunny.webp" alt="">
+                        </div>
+                        <div>
+                            <p class="temperature-forecast-info">22 &deg;C</p>
+                            <p class="wc-forecast-info">Sunny</p>
+                        </div>
+                    </div>
+                    <div class="humidity-forecast-container">
+                        <div>
+                            <img class="humidity-forecast-icon" src="icons/humidity.png" alt="">
+                        </div>
+                        <div>
+                            <p class="humidity-forecast-info">42%</p>
+                        </div>
+                    </div>
+                    <div class="wind-forecast-container">
+                        <div>
+                            <img class="wind-forecast-icon" src="icons/wind_power.png" alt="">
+                        </div>
+                        <div>
+                            <p class="wind-forecast-info">56 km/h</p>
+                            <p class="wind-forecast-info">North</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    
+
         </div>
     </div>
     <script type="module" src="script/index.js"></script>

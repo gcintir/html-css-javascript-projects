@@ -3,7 +3,7 @@ import { weatherForecastData } from '../data/weather-forecast-data.js';
 
 const API_KEY = 'dummy-api-key';
 
-const DATA_SOURCE_TYPE = 'API';
+const DATA_SOURCE_TYPE = 'FILE';
 
 export async function getWeatherCondition (city) {
     let apiData;

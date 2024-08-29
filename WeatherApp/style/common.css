@@ -11,7 +11,23 @@ html {
 }
 
 body {
-    font-family: "Inter", sans-serif;
-    background-color: #f5f1f1;
-    color: rgb(22, 0, 66);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150vh; /* TODO: set as 100*/
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #3478d1;
+    color: #050548;
+}
+
+.flex-container {
+    background-color:#eff4fc;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px 1px rgba(255, 255, 255, 0.3);
+    padding: 10px;
+    width: 35rem;
+}
+
+.hidden {
+    display: none !important;
 }

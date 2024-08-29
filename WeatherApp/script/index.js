@@ -1,8 +1,19 @@
 
 import { getWeatherCondition } from './weather-condition-api.js';
 
-(() => document.querySelector('.search-button')
-.addEventListener('click', () => displayWeatherCondition()))();
+init();
+
+function init () {
+    document.querySelector('.search-button').addEventListener('click', () => {
+        displayWeatherConditionResultDivision();
+    });
+
+}
+
+function displayWeatherConditionResultDivision () {
+    document.querySelector('.wc-data-container').classList.toggle('hidden');
+    document.querySelector('.wc-forecast-container').classList.toggle('hidden');
+}
 
 async function displayWeatherCondition () {
     const city = document.querySelector('.city-input').value;

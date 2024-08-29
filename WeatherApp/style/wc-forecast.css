@@ -1,0 +1,89 @@
+.wc-forecast-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.wc-forecast-type-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wc-forecast-item-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 0.3rem;
+}
+
+.toggle-icon-left, .toggle-icon-right {
+    width: 3rem;
+}
+
+.toggle-button-left, .toggle-button-right {
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+/*
+.toggle-button-left {
+    display: none;
+}
+
+.toggle-button-right {
+    display: none;
+}
+*/
+
+
+.wc-forecast-data-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+    column-gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.forecast-item-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.forecast-datetime {
+    align-self: center;
+    margin-bottom: 1rem;
+}
+
+.temperature-forecast-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.temperature-forecast-icon {
+    width: 3rem;
+}
+
+.humidity-forecast-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.humidity-forecast-icon {
+    width: 3rem;
+}
+
+.wind-forecast-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.wind-forecast-icon {
+    width: 3rem;
+}
