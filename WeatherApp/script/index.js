@@ -1,5 +1,8 @@
 import { getWeatherCondition } from "./weather-condition-api.js";
 
+let selectedForecastTimeWindow = 'hourly';
+
+
 init();
 
 function init() {
@@ -12,6 +15,17 @@ function init() {
         handleWeatherConditionQuery();
     }
   });
+
+  document.querySelector(".js-toggle-button-left").addEventListener("click", () => {
+    displayWeatherConditionForecastByTimeWindow('daily');
+    selectedForecastTimeWindow = 'daily';
+  });
+
+  document.querySelector(".js-toggle-button-right").addEventListener("click", () => {
+    displayWeatherConditionForecastByTimeWindow('hourly');
+    selectedForecastTimeWindow = 'hourly';
+  });
+
 }
 
 async function handleWeatherConditionQuery() {
@@ -21,6 +35,7 @@ async function handleWeatherConditionQuery() {
     weatherCondition.getLocation(),
     weatherCondition.getCurrentWeatherCondition()
   );
+  renderWeatherForecastView(weatherCondition.getForecastWeatherCondition());
   displayWeatherConditionView();
 }
 
@@ -84,6 +99,10 @@ function renderCurrentWeatherConditionView(location, currentWeatherCondition) {
     currentWeatherConditionHTML;
 }
 
+function renderWeatherForecastView (forecastWeatherCondition) {
+  let forecastWeatherConditionHTML = []; 
+}
+
 function getLocationInput() {
   const location = document.querySelector(".js-location-input").value;
   return location;
@@ -105,4 +124,14 @@ function displayWeatherConditionView() {
       .querySelector(".js-wc-forecast-container")
       .classList.remove("hidden");
   }
+}
+
+function displayWeatherConditionForecastByTimeWindow (timeWindow) {
+  if (timeWindow === 'daily') {
+    document.querySelector(".js-toggle-button-left").style.display = "none";
+    document.querySelector(".js-toggle-button-right").style.display = "inherit";
+  } else if (timeWindow === 'hourly'){
+    document.querySelector(".js-toggle-button-left").style.display = "inherit";
+    document.querySelector(".js-toggle-button-right").style.display = "none";
+  } 
 }

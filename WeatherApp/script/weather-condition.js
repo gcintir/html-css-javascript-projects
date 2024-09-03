@@ -44,7 +44,37 @@ export class WeatherCondition {
     }
 
     #extractForecastWeatherCondition (forecast) {
+        const dailyForecastArr = [];
+        const hourlyForecastArr = [];
+        forecast.forecastday.forEach(dailyForecastData => {
+            const dailyForecast = {
+                date: dailyForecastData.date,
+                temperature: dailyForecastData.day.avgtemp_c,
+                text: dailyForecastData.day.condition.text,
+                icon: dailyForecastData.day.condition.icon,
+                humidity: dailyForecastData.day.avghumidity,
+                maxWindKph: dailyForecastData.day.maxwind_kph
+            };
+            dailyForecastArr.push(dailyForecast);
 
+            dailyForecastData.hour.forEach(hourlyForecastData => {
+                const hourlyForecast = {
+                    time: hourlyForecastData.time,
+                    temperature: hourlyForecastData.temp_c,
+                    text: hourlyForecastData.condition.text,
+                    icon: hourlyForecastData.condition.icon,
+                    windKph: hourlyForecastData.wind_kph,
+                    windDirection: hourlyForecastData.wind_dir,
+                    humidity: hourlyForecastData.humidity
+                };
+                hourlyForecastArr.push(hourlyForecast);
+            });
+        });
+
+        this.#forecastWeatherCondition = {
+            hourly: hourlyForecastArr,
+            daily: dailyForecastArr
+        };
     }
 
     getLocation () {

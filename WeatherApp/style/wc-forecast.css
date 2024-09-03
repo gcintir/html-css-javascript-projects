@@ -29,16 +29,9 @@
     border: none;
 }
 
-/*
-.toggle-button-left {
-    display: none;
-}
-
 .toggle-button-right {
     display: none;
 }
-*/
-
 
 .wc-forecast-data-container {
     display: flex;
